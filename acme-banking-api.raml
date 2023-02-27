@@ -10,13 +10,13 @@ protocols:
 # Register new datatypes
 types:
   Account: !include datatypes/Account.raml
-  
+
 
 /accounts:
   post:
     displayName: Create a new account
     body:
-      type: 
+      type: Account
     responses:
       201:
       400:
