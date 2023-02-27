@@ -9,7 +9,6 @@ protocols:
   - HTTP
 
 
-
 /accounts:
   post:
     displayName: Create a new account
@@ -83,6 +82,9 @@ protocols:
   /{customer_id}:
     get:
       displayName: Get customer information for a specific customer ID  
+      headers:
+        Accept: 
+          example: application/json
       responses:
         200:
     patch:
@@ -105,6 +107,9 @@ protocols:
     /accounts:
       get:
         displayName: Get all accounts for a specific customer ID
+        headers:
+          Accept: 
+            example: application/json
         responses:
           200:
   
@@ -125,6 +130,9 @@ protocols:
   /{transaction_id}:
     get:
       displayName: Get transaction information for a specific transaction ID
+      headers:
+        Accept: 
+          example: application/json
       responses:
         200:
 
