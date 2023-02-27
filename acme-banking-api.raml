@@ -30,6 +30,9 @@ protocols:
           example: application/json
       responses:
         200:
+          headers:
+            Cache-Control:
+              example: max-age=604800 # 1 week
         
     put:
       displayName: Update account information for a specific account ID
@@ -56,6 +59,9 @@ protocols:
             example: application/json
         responses:
           200:
+            headers:
+              Cache-Control:
+                example: max-age=604800 # 1 week
 
 /customers:
   post:
@@ -80,7 +86,7 @@ protocols:
         200:
           headers:
             Cache-Control:
-              example: max-age=604800 #1 week
+              example: max-age=604800 # 1 week
 
   
   /{customer_id}:
@@ -91,6 +97,9 @@ protocols:
           example: application/json
       responses:
         200:
+          headers:
+            Cache-Control:
+              example: max-age=604800 # 1 week
     patch:
       displayName: Update customer information for a specific customer ID
       responses:
@@ -116,6 +125,9 @@ protocols:
             example: application/json
         responses:
           200:
+            headers:
+              Cache-Control:
+                example: max-age=604800 # 1 week
   
 
 /transactions:
@@ -139,4 +151,7 @@ protocols:
           example: application/json
       responses:
         200:
+          headers:
+            Cache-Control:
+              example: max-age=604800 # 1 week
 
