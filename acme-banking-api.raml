@@ -11,7 +11,8 @@ protocols:
 types:
   Account: !include datatypes/Account.raml
   Customer: !include datatypes/Customer.raml
-  Transaction: !include data
+  Transaction: !include datatypes/Transaction.raml
+  CustomerErrorMessage: !include datatypes/CustomErrorMessage.raml
 
 
 /accounts:
@@ -73,6 +74,8 @@ types:
 /customers:
   post:
     displayName: Create a new customer
+    body:
+      type
     responses:
       201:
       400:
