@@ -8,6 +8,10 @@ protocols:
   - HTTPS
   - HTTP
 
+documentation:
+  -
+    content: title
+    title: This is generic title
 
 /accounts:
   get:
@@ -15,9 +19,12 @@ protocols:
 
 /customers:
   get:
-    displayName: Get All Customers Info
+    displayName: Get all customers in the bank
+  post:
+    displayName: Create a new customer
+  
 
 /transactions:
   get:
     displayName: Get All Transactions
-    
+
