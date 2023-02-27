@@ -15,12 +15,12 @@ protocols:
     responses:
       201:
       400:
-        headers:
+        headers: E
         body:
           example:
             type: Missing attribute
             title: Body structure incomplete
-            detail: I
+            detail: Body is missing the account ID.
 
   /{account_id}:
     get:
