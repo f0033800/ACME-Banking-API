@@ -78,6 +78,10 @@ protocols:
           
     responses:
         200:
+          headers:
+            Cache-Control:
+              example: max-age=604800 #1 week
+
   
   /{customer_id}:
     get:
