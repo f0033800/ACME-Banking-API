@@ -38,6 +38,8 @@ types:
           example: application/json
       responses:
         200:
+          body:
+            type: 
           headers:
             Cache-Control:
               example: max-age=604800 # 1 week
@@ -75,7 +77,7 @@ types:
   post:
     displayName: Create a new customer
     body:
-      type
+      type: Customer
     responses:
       201:
       400:
@@ -143,6 +145,8 @@ types:
 /transactions:
   post:
     displayName: Create a new transaction
+    body:
+      type: Transaction
     responses:
       201:
       400:
