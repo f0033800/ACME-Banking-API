@@ -12,6 +12,16 @@ protocols:
 /accounts:
   get:
     displayName: Get All Accounts Info
+  post:
+    displayName: Create a new account
+
+  /{account_id}:
+    get:
+      displayName: Get account information for a specific account ID
+    put:
+      displayName: Update account information for a specific account ID
+    delete:
+      di
 
 /customers:
   post:
