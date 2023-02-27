@@ -12,12 +12,12 @@ protocols:
 /accounts:
   post:
     displayName: Create a new account
-    201:
-      
+    
 
   /{account_id}:
     get:
       displayName: Get account information for a specific account ID
+      200:
     put:
       displayName: Update account information for a specific account ID
     delete:
