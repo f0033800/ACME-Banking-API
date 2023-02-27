@@ -21,7 +21,11 @@ protocols:
     put:
       displayName: Update account information for a specific account ID
     delete:
-      di
+      displayName: Delete an account with a specific account ID
+    
+    /transactions:
+      get:
+        displayName: Get all transactions for a specific account ID
 
 /customers:
   post:
@@ -45,4 +49,10 @@ protocols:
 /transactions:
   get:
     displayName: Get All Transactions
+  post:
+    displayName: Create a new transaction
+  
+  /{transaction_id}:
+    get:
+      displayName: Get transaction information for a specific transaction ID
 
