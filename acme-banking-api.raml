@@ -34,6 +34,8 @@ protocols:
 /customers:
   post:
     displayName: Create a new customer
+    responses:
+      201:
   get:
     displayName: Get all customers in the bank
     responses:
@@ -59,6 +61,8 @@ protocols:
 /transactions:
   post:
     displayName: Create a new transaction
+    responses:
+      201:
   
   /{transaction_id}:
     get:
