@@ -29,13 +29,13 @@ uses:
   Banking: libraries/BankLibrary.raml
 
 /accounts:
-  type: Collection
+  type: Banking.Collection
     
   /{account_id}:
     get:
       displayName: Get information for a specific account
       is:
-        - Cacheable
+        - Banking.Cacheable
       responses:
         200:
           body:
