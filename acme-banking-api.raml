@@ -1,19 +1,20 @@
 #%RAML 1.0
 title: ACME Banking API
-description: This API offers access to personal banking data, around customers, transactions and accounts. GitHub Signed!
+description: |-
+  This API offers access to personal banking data, around customers, transactions and accounts. Github Signed!
 mediaType:
   - application/json
 version: v1
 protocols:
   - HTTPS
   - HTTP
+
 # Register new datatypes
 types:
   Account: !include datatypes/Account.raml
   Customer: !include datatypes/Customer.raml
   Transaction: !include datatypes/Transaction.raml
-  CustomerErrorMessage: !include datatypes/CustomErrorMessage.raml
-
+  CustomErrorMessage: !include datatypes/CustomErrorMessage.raml
 
 /accounts:
   post:
@@ -24,62 +25,63 @@ types:
       201:
         headers:
           Location:
-            example:
-              /account/acc-123
+            example: /accounts/acc-123
       400:
-        headers: 
+        headers:
         body:
           example:
             type: Missing attribute
             title: Body structure incomplete
-            detail: Body is missing the account ID.
-
+            detail: Body is missing the account id.
   /{account_id}:
     get:
-      displayName: Get account information for a specific account ID
-      headers:
-        Accept: 
-          example: application/json
+      displayName: Get information for a specific account
       responses:
         200:
           body:
             type: Account
-          headers:
-            Cache-Control:
-              example: max-age=604800 # 1 week
-        
     put:
-      displayName: Update account information for a specific account ID
+      displayName: Get information for a specific account
       body:
         type: Account
       responses:
         201:
         503:
-          headers: 
+          headers:
           body:
             example:
               type: Service Unavailable
               title: Service Unavailable
-              detail: The account service is not available.
+              detail: The account service is not available
     delete:
-      displayName: Delete an account with a specific account ID
+      displayName: Get information for a specific account
       responses:
         202:
         204:
-    
-    /transactions:
-      get:
-        displayName: Get all transactions for a specific account ID
-        headers:
-          Accept: 
-            example: application/json
-        responses:
-          200:
-            headers:
-              Cache-Control:
-                example: max-age=604800 # 1 week
+
+/accounts/{account_id}/transactions:
+  get:
+    displayName:  Get all transactions for a specific account
+    responses:
+      200:
+        body:
+          type: Transaction[]
 
 /customers:
+  get:
+    displayName: Get all customers in the bank
+    # headers & body for request
+    headers:
+      Accept:
+        required: false
+        example: application/json
+    responses:
+      200:
+        headers:
+          Cache-Control:
+            example: max-age=604800 # 1 week
+        body:
+          type: Customer[]
   post:
     displayName: Create a new customer
     body:
@@ -87,93 +89,58 @@ types:
     responses:
       201:
       400:
-        headers: 
+        headers:
         body:
           example:
             type: Missing attribute
             title: Body structure incomplete
-            detail: Body is missing the account ID.
-  get:
-    displayName: Get all customers in the bank
-    # headers & body for request
-    headers:
-      Accept: 
-        example: application/json          
-          
-    responses:
-        200:
-          headers:
-            Cache-Control:
-              example: max-age=604800 # 1 week
-          body:
-            type: Customer[]
-
+            detail: Body is missing the customer id.
+      
   
   /{customer_id}:
     get:
-      displayName: Get customer information for a specific customer ID  
-      headers:
-        Accept: 
-          example: application/json
+      displayName: Get information for a specific customer
       responses:
         200:
-          headers:
-            Cache-Control:
-              example: max-age=604800 # 1 week
+
     patch:
-      displayName: Update customer information for a specific customer ID
+      displayName: Update information for a specific customer
       responses:
         204:
         503:
-          headers: 
+          headers:
           body:
             example:
               type: Service Unavailable
               title: Service Unavailable
-              detail: The account service is not available.
+              detail: The customer service is not available
     delete:
-      displayName: Delete a customer with a specific customer ID
+      displayName: Delete information for a specific customer
       responses:
         202:
         204:
 
-    /accounts:
-      get:
-        displayName: Get all accounts for a specific customer ID
-        headers:
-          Accept: 
-            example: application/json
-        responses:
-          200:
-            headers:
-              Cache-Control:
-                example: max-age=604800 # 1 week
-  
+/customers/{customer_id}/accounts:
+  get:
+    displayName: Get all accounts for a specific customer
+    responses:
+      200:
+    
 
 /transactions:
   post:
     displayName: Create a new transaction
-    body:
-      type: Transaction
     responses:
       201:
       400:
-        headers: 
+        headers:
         body:
           example:
             type: Missing attribute
             title: Body structure incomplete
-            detail: Body is missing the account ID.
-  
+            detail: Body is missing the transaction id.
   /{transaction_id}:
     get:
-      displayName: Get transaction information for a specific transaction ID
-      headers:
-        Accept: 
-          example: application/json
+      displayName: Get information for a specific transaction
       responses:
         200:
-          headers:
-            Cache-Control:
-              example: max-age=604800 # 1 week
-
