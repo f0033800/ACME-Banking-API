@@ -1,24 +1,35 @@
 #%RAML 1.0 DocumentationItem
 title: Getting Started with ACME Bank API
+# if we use pipe | , then we can use markdown directly
 content: |
   **ACME BANK** API offers access to _customers_, _accounts_ and _transactions_ data.
-
   ---
-
+  
   So we offer these resources:
     - Customers
     - Accounts
     - Transactions
-
-  > This is a note: Please remember do your job
-
+  > This is a note: Please remmember do your job...
+  ![Minion](https://octodex.github.com/images/minion.png)
   ```
   This is dataweave code:
-    var result = realUrl()
-
-# h1 Heading 8-)
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
+    var result = readUrl("https://myapp.com/api/users", "application/json")
+  ```
+  | Option | Description |
+  | ------ | ----------- |
+  | data   | path to data files to supply the data that will be passed into templates. |
+  | engine | engine to be used for processing templates. Handlebars is the default. |
+  | ext    | extension to be used for dest files. |
+  This is a text...
+  ## Emphasis
+  **This is bold text**
+  __This is bold text__
+  *This is italic text*
+  _This is italic text_
+  ~~Strikethrough~~
+    # h1 Heading
+  ## h2 Heading
+  ### h3 Heading
+  #### h4 Heading
+  ##### h5 Heading
+  ###### h6 Heading
