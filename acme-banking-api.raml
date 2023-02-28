@@ -33,7 +33,9 @@ securitySchemes:
 
 /accounts:
   type: Banking.Collection
-    
+  post:
+    securedBy:
+      - JWT
   /{account_id}:
     get:
       displayName: Get information for a specific account
