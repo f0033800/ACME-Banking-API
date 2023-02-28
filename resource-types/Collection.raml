@@ -3,9 +3,7 @@
 post:
   displayName: Create a new <<resourcePathName>>
   body:
-    type: <<resourcePathName | !singularize | !uppercamelcase>>
-    example: 
-      
+    type: << resourcePathName | !singularize | !uppercamelcase >>
   responses:
     201:
       headers:
@@ -19,4 +17,4 @@ post:
         example:
           type: Missing attribute
           title: Body structure incomplete
-          detail: Body is missing the account id.
+          detail: Body is missing the << resourcePathName | !singularize | !uppercamelcase >> id.
