@@ -23,7 +23,8 @@ resourceTypes:
   Collection: !include resource-types/Collection.raml
 
 /accounts:
-  type
+  type: Collection
+    
   /{account_id}:
     get:
       displayName: Get information for a specific account
