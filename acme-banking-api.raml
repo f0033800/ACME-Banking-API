@@ -28,6 +28,9 @@ documentation:
 uses:
   Banking: libraries/BankLibrary.raml
 
+securitySchemes:
+  JWT: !include security-schemes/
+
 /accounts:
   type: Banking.Collection
     
